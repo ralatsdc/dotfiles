@@ -1,0 +1,3 @@
+# Files chezmoi should not manage
+README.md
+LICENSE

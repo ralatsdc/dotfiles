@@ -1,0 +1,73 @@
+# ~/.zshrc — Interactive shell configuration
+
+# ── NVM ─────────────────────────────────────────────────────────────────────
+{{ if eq .chezmoi.os "darwin" -}}
+source /opt/local/share/nvm/init-nvm.sh
+{{ end -}}
+
+# ── Emacs ───────────────────────────────────────────────────────────────────
+export EDITOR="emacs --no-init"
+{{ if eq .chezmoi.os "darwin" -}}
+alias open.Emacs="open -n -a Emacs"
+{{ end -}}
+
+# ── Java (MacPorts OpenJDK) ─────────────────────────────────────────────────
+{{ if eq .chezmoi.os "darwin" -}}
+export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+alias set.java.8="export JAVA_HOME=$(/usr/libexec/java_home -v 8); java -version"
+alias set.java.11="export JAVA_HOME=$(/usr/libexec/java_home -v 11); java -version"
+alias set.java.21="export JAVA_HOME=$(/usr/libexec/java_home -v 21); java -version"
+{{ end -}}
+
+# ── Code quality aliases ────────────────────────────────────────────────────
+alias cq.black='black --diff --check *.py'
+alias cq.pylint='pylint --disable=all --enable=unused-import *.py'
+alias cq.mypy='mypy --allow-untyped-decorators --ignore-missing-imports --no-warn-return-any --strict --allow-subclassing-any *.py'
+
+# ── Git aliases ─────────────────────────────────────────────────────────────
+srt="committerdate"
+fmt="'%(committerdate:short) %(authorname) %(HEAD) "
+fmt+="%(color:red)%(refname:short)%(color:reset) "
+fmt+="-- %(contents:subject)'"
+alias git.for-each-ref="git for-each-ref --sort=$srt refs/heads/ --format=$fmt"
+
+# ── Completions ─────────────────────────────────────────────────────────────
+autoload -Uz compinit && compinit
+
+# ── Secrets (from macOS Keychain — no plaintext credentials) ────────────────
+# Store secrets with:
+#   security add-generic-password -U -a "$USER" -s "SECRET_NAME" -w "value"
+# Retrieve here with:
+#   export SECRET_NAME=$(security find-generic-password -s "SECRET_NAME" -w)
+#
+# Secrets that were previously in this file:
+#   VOXCELEB2_USERNAME, VOXCELEB2_PASSWORD
+#   SECRET_KEY
+#   ARANGO_DB_PASSWORD
+# have been moved to the macOS Keychain. See README for migration steps.
+
+{{ if eq .chezmoi.os "darwin" -}}
+export VOXCELEB2_USERNAME=$(security find-generic-password -s "VOXCELEB2_USERNAME" -w 2>/dev/null)
+export VOXCELEB2_PASSWORD=$(security find-generic-password -s "VOXCELEB2_PASSWORD" -w 2>/dev/null)
+export SECRET_KEY=$(security find-generic-password -s "SECRET_KEY" -w 2>/dev/null)
+export ARANGO_DB_PASSWORD=$(security find-generic-password -s "ARANGO_DB_PASSWORD" -w 2>/dev/null)
+{{ end -}}
+
+# ── NIH-NLM environment (non-secret values) ────────────────────────────────
+export ARANGO_DB_HOST="127.0.0.1"
+export ARANGO_DB_PORT="8529"
+export ARANGO_DB_NAME="Cell-KN"
+export ARANGO_DB_SCHEMA_NAME="Cell-KN-Schema"
+export ARANGO_DB_USER="root"
+export ARANGO_DB_HOME="$HOME/Projects/NIH-NLM/Cell-KN/cell-kn-mvp-etl-results/cell-kn-mvp-etl-ontologies/data/arangodb"
+export ARANGO_DB_APPS="$HOME/Projects/NIH-NLM/Cell-KN/cell-kn-mvp-etl-results/cell-kn-mvp-etl-ontologies/data/arangodb-apps"
+
+# ── Project aliases ─────────────────────────────────────────────────────────
+# Loaded from a separate file to keep machine-specific aliases out of
+# version control.  Create ~/.zsh_projects with your cd.* aliases.
+[[ -f ~/.zsh_projects ]] && source ~/.zsh_projects
+
+# ── Pipx / Poetry ──────────────────────────────────────────────────────────
+{{ if eq .chezmoi.os "darwin" -}}
+export PATH="$PATH:$HOME/Library/Python/3.13/bin"
+{{ end -}}
