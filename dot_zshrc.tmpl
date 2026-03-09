@@ -1,22 +1,12 @@
 # ~/.zshrc — Interactive shell configuration
 
-# ── NVM ─────────────────────────────────────────────────────────────────────
-{{ if eq .chezmoi.os "darwin" -}}
-source /opt/local/share/nvm/init-nvm.sh
-{{ end -}}
+# ── mise (language version manager) ─────────────────────────────────────────
+eval "$(mise activate zsh)"
 
 # ── Emacs ───────────────────────────────────────────────────────────────────
 export EDITOR="emacs --no-init"
 {{ if eq .chezmoi.os "darwin" -}}
 alias open.Emacs="open -n -a Emacs"
-{{ end -}}
-
-# ── Java (MacPorts OpenJDK) ─────────────────────────────────────────────────
-{{ if eq .chezmoi.os "darwin" -}}
-export JAVA_HOME=$(/usr/libexec/java_home -v 21)
-alias set.java.8="export JAVA_HOME=$(/usr/libexec/java_home -v 8); java -version"
-alias set.java.11="export JAVA_HOME=$(/usr/libexec/java_home -v 11); java -version"
-alias set.java.21="export JAVA_HOME=$(/usr/libexec/java_home -v 21); java -version"
 {{ end -}}
 
 # ── Code quality aliases ────────────────────────────────────────────────────
