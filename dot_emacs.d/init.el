@@ -98,26 +98,16 @@
          (python-ts-mode . eglot-ensure)
          (rust-mode      . eglot-ensure)
          (rust-ts-mode   . eglot-ensure)
-         (go-mode        . eglot-ensure)
-         (go-ts-mode     . eglot-ensure)
          (js-mode        . eglot-ensure)
          (js2-mode       . eglot-ensure)
-         (scala-mode     . eglot-ensure)
-         (haskell-mode   . eglot-ensure)
-         (clojure-mode   . eglot-ensure))
-  :config
-  ;; Metals (Scala) — configure via eglot-server-programs if needed
-  (add-to-list 'eglot-server-programs '(scala-mode "metals")))
+         (java-mode      . eglot-ensure)
+         (java-ts-mode   . eglot-ensure)))
 
 ;;;; Language modes ------------------------------------------------------------
 
 (require 'init-python)
 (require 'init-javascript)
 (require 'init-rust)
-(require 'init-clojure)
-(require 'init-go)
-(require 'init-scala)
-(require 'init-haskell)
 (require 'init-java)
 (require 'init-r)
 (require 'init-yaml)
