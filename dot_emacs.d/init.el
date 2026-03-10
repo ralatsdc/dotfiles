@@ -80,15 +80,25 @@
 (use-package yasnippet
   :config (yas-global-mode 1))
 
-;;;; Search -------------------------------------------------------------------
+;;;; Minibuffer completion (vertico + consult + marginalia) -------------------
 
-(use-package helm
-  :bind (("M-x"     . helm-M-x)
-         ("C-x C-f" . helm-find-files)
-         ("C-x b"   . helm-buffers-list))
-  :config (helm-mode 1))
+(use-package vertico
+  :init
+  (vertico-mode))
 
-(use-package helm-ag)
+(use-package marginalia
+  :init
+  (marginalia-mode))
+
+(use-package consult
+  :bind (("M-x"     . execute-extended-command)  ; uses vertico automatically
+         ("C-x C-f" . find-file)                 ; uses vertico automatically
+         ("C-x b"   . consult-buffer)
+         ("M-s l"   . consult-line)              ; search lines in current buffer
+         ("M-s g"   . consult-grep)              ; grep across files
+         ("M-s r"   . consult-ripgrep)           ; ripgrep across files
+         ("M-g g"   . consult-goto-line)
+         ("M-g M-g" . consult-goto-line)))
 
 ;;;; LSP via eglot (built-in since Emacs 29) ----------------------------------
 

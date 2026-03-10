@@ -39,12 +39,72 @@ sudo port select --set python3 python313  # Set the default python3
 
 ### Emacs
 
-The Emacs configuration targets **Emacs 29+** and uses built-in features where possible:
+The Emacs configuration targets **Emacs 29+** and uses built-in features where possible.
 
-- [use-package](https://www.gnu.org/software/emacs/manual/html_mono/use-package.html) for declarative package management (auto-installs from MELPA on first launch)
-- [eglot](https://www.gnu.org/software/emacs/manual/html_mono/eglot.html) as the built-in LSP client for Python, Rust, JavaScript, and Java
-- [corfu](https://github.com/minad/corfu) + [cape](https://github.com/minad/cape) + [orderless](https://github.com/oantolin/orderless) for in-buffer completion
-- [magit](https://magit.vc/) for Git, [flycheck](https://www.flycheck.org/) for syntax checking, [helm](https://emacs-helm.github.io/helm/) for search/navigation
+#### Bootstrap
+
+- [use-package](https://www.gnu.org/software/emacs/manual/html_mono/use-package.html) — Declarative package management (built into Emacs 29+). All packages are auto-installed from MELPA on first launch.
+- [exec-path-from-shell](https://github.com/purcell/exec-path-from-shell) — Inherits `PATH` and environment variables from your shell so that Emacs finds tools like `ruff`, `pylsp`, `rust-analyzer`, etc.
+
+#### Minibuffer completion: Vertico + Consult + Marginalia
+
+These replace Helm with a lighter stack built on Emacs's native completion API.
+
+- [vertico](https://github.com/minad/vertico) — Vertical minibuffer completion UI. Activates automatically for `M-x`, `C-x C-f`, and anywhere Emacs uses `completing-read`.
+- [consult](https://github.com/minad/consult) — Enhanced commands that integrate with Vertico:
+  - `C-x b` — `consult-buffer` (switch buffers, recent files, bookmarks)
+  - `M-s l` — `consult-line` (search lines in the current buffer)
+  - `M-s g` — `consult-grep` (grep across files)
+  - `M-s r` — `consult-ripgrep` (ripgrep across files, requires `rg` on PATH)
+  - `M-g g` — `consult-goto-line`
+- [marginalia](https://github.com/minad/marginalia) — Adds rich annotations (docstrings, file sizes, permissions) to minibuffer candidates.
+
+#### In-buffer completion: Corfu + Cape + Orderless
+
+- [corfu](https://github.com/minad/corfu) — In-buffer completion popup. Auto-triggers after 2 characters with a 0.2s delay. Completion candidates come from eglot (LSP), cape, and other completion-at-point backends.
+- [cape](https://github.com/minad/cape) — Extra completion-at-point backends. Configured here with `cape-dabbrev` (words from open buffers) and `cape-file` (file path completion).
+- [orderless](https://github.com/oantolin/orderless) — Completion matching style that allows space-separated patterns in any order (e.g., typing `def main` matches `defun-main-loop`). Used by both Vertico (minibuffer) and Corfu (in-buffer).
+
+#### LSP: Eglot
+
+- [eglot](https://www.gnu.org/software/emacs/manual/html_mono/eglot.html) — Built-in LSP client (Emacs 29+). Starts automatically in Python, Rust, JavaScript, and Java buffers. Provides completions, hover docs, go-to-definition, diagnostics, and formatting.
+  - `M-.` — Go to definition
+  - `M-?` — Find references
+  - `C-h .` — Show hover documentation
+  - `M-x eglot-rename` — Rename symbol
+  - `M-x eglot-format-buffer` — Format the buffer (runs automatically on save for Python)
+  - `M-x eglot-code-actions` — Show available code actions
+
+#### Python tooling in Emacs
+
+- [python-lsp-server](https://github.com/python-lsp/python-lsp-server) — The LSP server eglot uses for Python. Provides completions, hover, go-to-definition.
+- [python-lsp-ruff](https://github.com/python-lsp/python-lsp-ruff) — Plugin that delegates linting and formatting to [ruff](https://docs.astral.sh/ruff/) through pylsp. Python files are formatted on save automatically.
+- [pyvenv](https://github.com/jorgenschaefer/pyvenv) — Virtual environment support. Activates venvs so eglot and other tools see project dependencies. Use `M-x pyvenv-activate` to activate a venv, or `M-x pyvenv-workon` for named environments.
+
+Install the Python LSP stack with:
+```sh
+pip install python-lsp-server python-lsp-ruff ruff
+```
+
+#### Version control
+
+- [magit](https://magit.vc/) — Git interface. `C-x g` opens magit-status showing staged/unstaged changes, with key-driven commands for committing, branching, pushing, rebasing, etc. See the [magit cheatsheet](https://magit.vc/manual/magit-refcard.pdf).
+
+#### Syntax checking
+
+- [flycheck](https://www.flycheck.org/) — On-the-fly syntax checking. Enabled globally. Shows errors/warnings inline. Works alongside eglot diagnostics. See [flycheck languages](https://www.flycheck.org/en/latest/languages.html).
+
+#### Snippets
+
+- [yasnippet](https://github.com/joaotavora/yasnippet) — Template/snippet expansion. Type a snippet key and press `TAB` to expand. `M-x yas-describe-tables` lists available snippets for the current mode. See [snippet development](https://joaotavora.github.io/yasnippet/snippet-development.html).
+
+#### Language modes
+
+- [js2-mode](https://github.com/mooz/js2-mode) + [web-beautify](https://github.com/yasuyk/web-beautify) — JavaScript editing and formatting
+- [rust-mode](https://github.com/rust-lang/rust-mode) + [flycheck-rust](https://github.com/flycheck/flycheck-rust) — Rust editing with flycheck integration
+- [ess](https://ess.r-project.org/) — Emacs Speaks Statistics, for R. Provides an interactive R console (`M-x R`), code evaluation (`C-c C-c` sends region/line to R), and object inspection. See [ESS manual](https://ess.r-project.org/Manual/ess.html).
+- [yaml-mode](https://github.com/yoshiki/yaml-mode) — YAML syntax highlighting and indentation
+- [matlab-mode](https://github.com/mathworks/Emacs-MATLAB-Mode) — MATLAB editing
 
 ### macOS Keychain
 
