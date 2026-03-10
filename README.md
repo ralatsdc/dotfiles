@@ -100,7 +100,7 @@ pip install python-lsp-server python-lsp-ruff ruff
 
 #### Language modes
 
-- [js2-mode](https://github.com/mooz/js2-mode) + [web-beautify](https://github.com/yasuyk/web-beautify) — JavaScript editing and formatting
+- Built-in `js-mode` / `js-ts-mode` — JavaScript editing. Eglot provides completions, diagnostics, and formatting via [typescript-language-server](https://github.com/typescript-language-server/typescript-language-server) (`npm install -g typescript-language-server typescript`).
 - [rust-mode](https://github.com/rust-lang/rust-mode) + [flycheck-rust](https://github.com/flycheck/flycheck-rust) — Rust editing with flycheck integration
 - [ess](https://ess.r-project.org/) — Emacs Speaks Statistics, for R. Provides an interactive R console (`M-x R`), code evaluation (`C-c C-c` sends region/line to R), and object inspection. See [ESS manual](https://ess.r-project.org/Manual/ess.html).
 - [yaml-mode](https://github.com/yoshiki/yaml-mode) — YAML syntax highlighting and indentation

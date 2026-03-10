@@ -109,7 +109,7 @@
          (rust-mode      . eglot-ensure)
          (rust-ts-mode   . eglot-ensure)
          (js-mode        . eglot-ensure)
-         (js2-mode       . eglot-ensure)
+         (js-ts-mode     . eglot-ensure)
          (java-mode      . eglot-ensure)
          (java-ts-mode   . eglot-ensure)))
 
