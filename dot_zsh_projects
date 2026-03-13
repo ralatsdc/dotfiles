@@ -8,41 +8,14 @@ alias cd.speakup="cd ~/Projects/Home/Toastmasters/Speak-Up-Cambridge/speakup ; .
 # Springbok
 alias cd.harvest="cd ~/Projects/Springbok/harvest ; . .venv/bin/activate"
 
-# IQT
-alias cd.springbok-multimodal="cd ~/Projects/IQT/Multi-Modal/springbok-multimodal ; . .venv/bin/activate"
-alias cd.audio-recorder="cd ~/Projects/IQT/Multi-Modal-Forks/edgetech-audio-recorder ; . .venv/bin/activate"
-alias cd.auto-orienter="cd ~/Projects/IQT/Multi-Modal-Forks/edgetech-auto-orienter ; . .venv/bin/activate"
-alias cd.axis-ptz-controller="cd ~/Projects/IQT/Multi-Modal-Forks/edgetech-axis-ptz-controller ; . .venv/bin/activate"
-alias cd.daisy="cd ~/Projects/IQT/Multi-Modal-Forks/edgetech-daisy ; . .venv/bin/activate"
-alias cd.daisy-decoder="cd ~/Projects/IQT/Multi-Modal-Forks/edgetech-daisy-decoder ; . .venv/bin/activate"
-alias cd.object-ledger="cd ~/Projects/IQT/Multi-Modal-Forks/edgetech-object-ledger ; . .venv/bin/activate"
-alias cd.pingusb-json="cd ~/Projects/IQT/Multi-Modal-Forks/edgetech-pingusb-json ; . .venv/bin/activate"
-alias cd.test-harness="cd ~/Projects/IQT/Multi-Modal-Forks/edgetech-test-harness ; . .venv/bin/activate"
-alias cd.yolo-detect="cd ~/Projects/IQT/Multi-Modal-Forks/edgetech-yolo-detect ; . .venv/bin/activate"
-alias cd.aisonobuoy="cd ~/Projects/IQT/AI-Sonobuoy/AISonobuoy ; . .venv/bin/activate"
-alias cd.spinningup="cd ~/Projects/IQT/Maritime-Domain-Awareness/spinningup ; conda activate spinningup"
-
 # NIH-NLM
 alias cd.cell-kn-mvp-etl-ontologies="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-mvp-etl-results/cell-kn-mvp-etl-ontologies ; . .venv/bin/activate"
 alias cd.cell-kn-mvp-etl-results="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-mvp-etl-results ; . .venv/bin/activate"
+alias cd.cell-kn-mvp-ui-build="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-mvp-etl-results/cell-kn-mvp-ui ; . .venv/bin/activate"
 alias cd.nlm-ckn-etl="cd ~/Projects/NIH-NLM/Cell-KN/nlm-ckn-etl ; . python/.venv/bin/activate"
 alias cd.kgx="cd ~/Projects/NIH-NLM/Cell-KN/kgx ; . python/.venv/bin/activate"
-alias cd.cell-kn-mvp-ui-build="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-mvp-etl-results/cell-kn-mvp-ui ; . .venv/bin/activate"
-alias cd.cell-kn-mvp-ui-run="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-mvp-etl-results/cell-kn-mvp-ui ; . .venv/bin/activate ; . arango_api/.env"
-alias cd.cell-kn-mvp-ui-docker="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-mvp-ui-docker"
 alias cd.cell-kn="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn"
 alias cd.cell-kn-schema='cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-schema'
 alias cd.cell-kn-gencode-data='cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-gencode-data ; eval $(poetry env activate)'
 alias cd.cell-kn-open-targets-data='cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-open-targets-data ; eval $(poetry env activate)'
-alias cd.NSForest="cd ~/Projects/NIH-NLM/Cell-KN/springbok-cell-kn-demos/NSForest"
-alias cd.nsforest-docker="cd ~/Projects/NIH-NLM/Cell-KN/nsforest-docker"
-alias cd.springbok-cell-kn-demos="cd ~/Projects/NIH-NLM/Cell-KN/springbok-cell-kn-demos ; . .venv/bin/activate"
 alias cd.springbok-cell-kn-tex="cd ~/Projects/NIH-NLM/Cell-KN/springbok-cell-kn-tex"
-alias cd.springbok-drug-resource-comparison="cd ~/Projects/NIH-NLM/Cell-KN/springbok-drug-resource-comparison ; . .venv/bin/activate"
-alias cd.cellxgene-harvester="cd ~/Projects/NIH-NLM/Cell-KN/cellxgene-harvester ; . .venv/bin/activate"
-
-# SSH
-alias ssh.skyscan-011="ssh skyscan-011"
-alias ssh.shipscan-001="ssh shipscan-001"
-alias ssh.shipscan-003="ssh shipscan-003"
-alias ssh.collector-kit-001="ssh collector-kit-001"
