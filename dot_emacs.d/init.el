@@ -115,9 +115,11 @@
 ))
 
 ;;;; JSON formatting -----------------------------------------------------------
+;; vscode-json-language-server lacks formatting support, so use the
+;; built-in json-pretty-print-buffer instead of eglot-format-buffer.
 
 (defun my/json-format-buffer-before-save ()
-  "Format JSON buffer before saving."
+  "Set up JSON formatting on save."
   (add-hook 'before-save-hook #'json-pretty-print-buffer nil t))
 
 (add-hook 'json-mode-hook    #'my/json-format-buffer-before-save)
