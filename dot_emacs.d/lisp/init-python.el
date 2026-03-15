@@ -17,7 +17,8 @@
 ;; pylsp delegates linting and formatting to ruff while still
 ;; providing completions, hover, and go-to-definition.
 (setq-default eglot-workspace-configuration
-              '(:pylsp (:plugins (:ruff (:enabled t :formatEnabled t)))))
+              '(:pylsp (:plugins (:ruff (:enabled t :formatEnabled t)
+                           :jedi_signature_help (:enabled :json-false)))))
 
 ;; Format with ruff (via pylsp) on save
 (add-hook 'python-mode-hook
