@@ -111,7 +111,17 @@
          (js-mode        . eglot-ensure)
          (js-ts-mode     . eglot-ensure)
          (java-mode      . eglot-ensure)
-         (java-ts-mode   . eglot-ensure)))
+         (java-ts-mode   . eglot-ensure)
+))
+
+;;;; JSON formatting -----------------------------------------------------------
+
+(defun my/json-format-buffer-before-save ()
+  "Format JSON buffer before saving."
+  (add-hook 'before-save-hook #'json-pretty-print-buffer nil t))
+
+(add-hook 'json-mode-hook    #'my/json-format-buffer-before-save)
+(add-hook 'json-ts-mode-hook #'my/json-format-buffer-before-save)
 
 ;;;; Language modes ------------------------------------------------------------
 

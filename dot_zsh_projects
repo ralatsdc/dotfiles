@@ -6,6 +6,7 @@ alias cd.supplies="cd ~/Projects/Home/Supplies/supplies ; . .venv/bin/activate"
 alias cd.speakup="cd ~/Projects/Home/Toastmasters/Speak-Up-Cambridge/speakup ; . .venv/bin/activate"
 
 # Springbok
+alias cd.dotfiles="cd ~/Projects/Springbok/dotfiles"
 alias cd.harvest="cd ~/Projects/Springbok/harvest ; . .venv/bin/activate"
 
 # NIH-NLM
