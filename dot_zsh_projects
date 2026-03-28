@@ -21,3 +21,4 @@ alias cd.cell-kn-schema='cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-schema'
 alias cd.cell-kn-gencode-data='cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-gencode-data ; eval $(poetry env activate)'
 alias cd.cell-kn-open-targets-data='cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-open-targets-data ; eval $(poetry env activate)'
 alias cd.springbok-cell-kn-tex="cd ~/Projects/NIH-NLM/Cell-KN/springbok-cell-kn-tex"
+alias cp.prod="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn ; cp -r data/prod ~/Projects/NIH-NLM/Cell-KN/nlm-ckn-etl/data/results-$(git rev-parse --short=12 HEAD)"
