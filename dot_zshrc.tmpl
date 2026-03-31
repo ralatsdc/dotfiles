@@ -44,15 +44,16 @@ export ARANGO_DB_PASSWORD=$(security find-generic-password -s "ARANGO_DB_PASSWOR
 {{ end -}}
 
 # ── NIH-NLM environment (non-secret values) ────────────────────────────────
+export ARANGO_DB_HOME="$HOME/Projects/NIH-NLM/Cell-KN/nlm-ckn-etl/data/arangodb"
+export ARANGO_DB_APPS="$HOME/Projects/NIH-NLM/Cell-KN/nlm-ckn-etl/data/arangodb-apps"
 export ARANGO_DB_HOST="127.0.0.1"
 export ARANGO_DB_PORT="8529"
-export ARANGO_DB_NAME="Cell-KN-Ontologies"
-export ARANGO_DB_SCHEMA_NAME="Cell-KN-Schema"
 export ARANGO_DB_USER="root"
-export ARANGO_DB_HOME="$HOME/Projects/NIH-NLM/Cell-KN/nlm-ckn-etl/data/arangodb"
-export ARANGO_DB_APPS="$HOME/Projects/NIH-NLM/Cell-KN/nlm-ckn-etl/data/arangodb-apps/"
-export ARANGO_OGRAPH_NAME="KN-Ontologies-v2.0"
-export ARANGO_PGRAPH_NAME="KN-Phenotype-v2.0"
+export ARANGO_DB_ONTOLOGY_NAME="Cell-KN-Ontologies"
+export ARANGO_DB_PHENOTYPE_NAME="Cell-KN-Phenotypes"
+export ARANGO_DB_SCHEMA_NAME="Cell-KN-Schema"
+export ARANGO_ONTOLOGY_GRAPH_NAME="KN-Ontologies-v2.0"
+export ARANGO_PHENOTYPE_GRAPH_NAME="KN-Phenotype-v2.0"
 
 # ── Project aliases ─────────────────────────────────────────────────────────
 # Loaded from a separate file to keep machine-specific aliases out of
