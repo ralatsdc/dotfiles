@@ -10,15 +10,10 @@ alias cd.dotfiles="cd ~/Projects/Springbok/dotfiles"
 alias cd.harvest="cd ~/Projects/Springbok/harvest ; . .venv/bin/activate"
 
 # NIH-NLM
-alias cd.cell-kn-mvp-etl-ontologies="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-mvp-etl-results/cell-kn-mvp-etl-ontologies ; . .venv/bin/activate"
-alias cd.cell-kn-mvp-etl-results="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-mvp-etl-results ; . .venv/bin/activate"
-alias cd.cell-kn-mvp-ui-build="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-mvp-etl-results/cell-kn-mvp-ui ; . .venv/bin/activate"
-alias cd.nlm-ckn-etl="cd ~/Projects/NIH-NLM/Cell-KN/nlm-ckn-etl ; . ./python/.venv/bin/activate"
-alias cd.cell-kn-mvp-ui="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-mvp-ui ; . .venv/bin/activate"
-alias cd.kgx="cd ~/Projects/NIH-NLM/Cell-KN/kgx ; . .venv/bin/activate"
 alias cd.cell-kn="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn"
 alias cd.cell-kn-schema='cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-schema'
-alias cd.cell-kn-gencode-data='cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-gencode-data ; eval $(poetry env activate)'
-alias cd.cell-kn-open-targets-data='cd ~/Projects/NIH-NLM/Cell-KN/cell-kn-open-targets-data ; eval $(poetry env activate)'
-alias cd.springbok-cell-kn-tex="cd ~/Projects/NIH-NLM/Cell-KN/springbok-cell-kn-tex"
+alias cd.kgx="cd ~/Projects/NIH-NLM/Cell-KN/kgx ; . .venv/bin/activate"
+alias cd.nlm-ckn-etl="cd ~/Projects/NIH-NLM/Cell-KN/nlm-ckn-etl ; . ./python/.venv/bin/activate"
+alias cd.nlm-ckn-ui="cd ~/Projects/NIH-NLM/Cell-KN/nlm-ckn-ui ; . ./python/.venv/bin/activate"
 alias cp.prod="cd ~/Projects/NIH-NLM/Cell-KN/cell-kn ; cp -r data/prod ~/Projects/NIH-NLM/Cell-KN/nlm-ckn-etl/data/results-$(git rev-parse --short=12 HEAD)"
+alias cd.springbok-cell-kn-tex="cd ~/Projects/NIH-NLM/Cell-KN/springbok-cell-kn-tex"
