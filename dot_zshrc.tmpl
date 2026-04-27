@@ -41,6 +41,7 @@ export VOXCELEB2_USERNAME=$(security find-generic-password -s "VOXCELEB2_USERNAM
 export VOXCELEB2_PASSWORD=$(security find-generic-password -s "VOXCELEB2_PASSWORD" -w 2>/dev/null)
 export SECRET_KEY=$(security find-generic-password -s "SECRET_KEY" -w 2>/dev/null)
 export ARANGO_DB_PASSWORD=$(security find-generic-password -s "ARANGO_DB_PASSWORD" -w 2>/dev/null)
+export JENA_PASSWORD=$(security find-generic-password -s "JENA_PASSWORD" -w 2>/dev/null)
 export NEO4J_PASSWORD=$(security find-generic-password -s "NEO4J_PASSWORD" -w 2>/dev/null)
 {{ end -}}
 
@@ -55,6 +56,7 @@ export ARANGO_PHENOTYPE_DB_NAME="Cell-KN-Phenotypes"
 export ARANGO_SCHEMA_DB_NAME="Cell-KN-Schema"
 export ARANGO_ONTOLOGY_GRAPH_NAME="KN-Ontologies-v2.0"
 export ARANGO_PHENOTYPE_GRAPH_NAME="KN-Phenotypes-v2.0"
+export JENA_HOME="$HOME/Projects/NIH-NLM/Cell-KN/nlm-ckn-etl/data/jena"
 export NEO4J_HOME="$HOME/Projects/NIH-NLM/Cell-KN/nlm-ckn-etl/data/neo4j"
 
 # ── Project aliases ─────────────────────────────────────────────────────────
